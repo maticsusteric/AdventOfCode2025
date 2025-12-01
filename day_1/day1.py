@@ -2,6 +2,8 @@
 Advent of Code 2025: Day 1
 Secret Entrance
 """
+import time
+
 file = "input.txt"
 
 lock_combinations = list(range(100))
@@ -62,6 +64,14 @@ def part_2(commands: list[str]) -> int:
                     times_on_zero += 1
     return times_on_zero
 
+# Now run and time both parts (hope it works lol)
+start_time = time.perf_counter()
+part1_result = part_1(commands)
+part1_time = time.perf_counter() - start_time
 
-print(f"Part 1 answer: {part_1(commands)}")
-print(f"Part 2 answer: {part_2(commands)}")
+start_time = time.perf_counter()
+part2_result = part_2(commands)
+part2_time = time.perf_counter() - start_time
+
+print(f"Part 1 answer: {part1_result} (took {part1_time*1000:.3f}ms)") # Output: Part 1 answer: 1052 (took 1.034ms)
+print(f"Part 2 answer: {part2_result} (took {part2_time*1000:.3f}ms)") # Output: Part 2 answer: 6295 (took 39.304ms)
